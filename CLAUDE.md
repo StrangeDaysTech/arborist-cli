@@ -20,6 +20,13 @@
 ### Prohibited
 - Never document credentials, tokens, API keys, or PII in document content
 
+### Git Operations
+
+- **NEVER commit directly to `main`** — all changes go through branches + PRs
+- Branch prefixes: `feature/`, `feat/`, `fix/`, `hotfix/`, `docs/`, `refactor/`, `test/`
+- Use conventional commits: `feat:`, `fix:`, `docs:`, `refactor:`, `chore:`, `test:`, `perf:`
+- Full strategy: `.devtrail/00-governance/GIT-BRANCHING-STRATEGY.md`
+
 ### Pre-commit Checklist
 
 Before committing, check:
