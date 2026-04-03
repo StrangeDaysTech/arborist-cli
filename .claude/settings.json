@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "defaultMode": "dontAsk",
+    "allow": [
+      "Bash(git:*)",
+      "Bash(cargo:*)",
+      "Bash(rustup:*)",
+      "Bash(gh:*)",
+      "Bash(.specify/scripts:*)",
+      "Bash(ls:*)",
+      "Bash(mkdir:*)",
+      "Bash(cat:*)",
+      "Bash(diff:*)",
+      "Bash(test:*)",
+      "Bash(echo:*)",
+      "Read",
+      "Edit",
+      "Write",
+      "Glob",
+      "Grep"
+    ]
+  }
+}

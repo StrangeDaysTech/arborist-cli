@@ -58,3 +58,10 @@ Do not capture PII, tokens, or secrets in OTel attributes or logs. Record instru
 ---
 
 *DevTrail | [Strange Days Tech](https://strangedays.tech) — Because every change tells a story.*
+
+## Active Technologies
+- Rust, Edition 2024 + `arborist-metrics` (analysis), `clap` (argument parsing), `serde`/`serde_json` (JSON output), `ignore` (directory traversal + gitignore), `thiserror` (error types) (001-core-cli-mvp)
+- N/A — stateless CLI, no persistence (001-core-cli-mvp)
+
+## Recent Changes
+- 001-core-cli-mvp: Added Rust, Edition 2024 + `arborist-metrics` (analysis), `clap` (argument parsing), `serde`/`serde_json` (JSON output), `ignore` (directory traversal + gitignore), `thiserror` (error types)
