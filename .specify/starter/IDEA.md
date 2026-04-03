@@ -156,14 +156,62 @@ $ cat src/main.rs | arborist --language rust --format json
 $ arborist src/ --threshold 15 --exceeds-only && echo "OK" || echo "COMPLEX"
 ```
 
-## Open questions
+## MVP scope
 
-- Should we support a config file (`.arborist.toml`) for default threshold/language settings?
-- Should `--watch` mode be in scope for live development feedback?
-- Should we add a `--diff` mode that only analyzes files changed in a git diff?
-- What's the minimum Rust edition / MSRV? (likely same as arborist-metrics: edition 2024)
+The first release focuses on core analysis capabilities with zero configuration:
+
+- **Single file analysis** — `arborist <file>` wrapping `analyze_file` /
+  `analyze_file_with_config`
+- **Stdin analysis** — `echo "code" | arborist --language rust` wrapping
+  `analyze_source` / `analyze_source_with_config`
+- **Directory traversal** — `arborist src/` with recursive analysis of recognized
+  files, `--languages` filter, and `--gitignore` support
+- **Output formats** — human-readable table (default), JSON (`--format json`),
+  CSV (`--format csv`)
+- **Filtering & sorting** — `--threshold <N>`, `--sort <metric>`, `--top <N>`,
+  `--exceeds-only`
+- **Configuration** — `--no-methods` to exclude method-level analysis
+- **Exit codes** — `0` (ok), `1` (threshold exceeded), `2` (error)
+- **Rust edition 2024** — aligned with `arborist-metrics`
+
+Everything listed in the *Capabilities* section above is in scope for the MVP
+unless explicitly deferred below.
+
+## Future iterations
+
+### Iteration 2: Git-aware analysis (`--diff` mode)
+
+Analyze only files changed in a git diff. High value for both target audiences:
+
+- AI agents can evaluate "did this change increase complexity?"
+- Developers can triage complexity during code review
+
+Semantics to define: diff reference (`HEAD~1`, branch name, staged vs unstaged),
+handling of deleted files, output format for before/after comparison.
+
+### When demanded: Config file (`.arborist.toml`)
+
+An optional project-level config file for default thresholds and language settings.
+Deferred until real-world usage shows teams repeatedly passing the same flags.
+When implemented: TOML format, CLI args always take precedence.
+
+### Explicitly out of scope: `--watch` mode
+
+Live file-watching feedback is better served by composing `arborist` with existing
+Unix tools (`watch`, `entr`, `watchexec`). This keeps the CLI composable and avoids
+pulling in file-system watcher dependencies for a feature the target audiences
+(AI agents and quick one-off checks) don't need.
+
+## Resolved questions
+
+| Question | Decision | Rationale |
+|----------|----------|-----------|
+| Config file (`.arborist.toml`)? | Deferred | Zero-config principle; CLI flags cover 90% of cases. Add when teams show demand. |
+| `--watch` mode? | No | Solved by external composition (`watch`, `entr`). Keeps CLI focused. |
+| `--diff` mode? | Yes, post-MVP | High value but requires semantic decisions. Ship core analysis first. |
+| Rust edition / MSRV? | Edition 2024 | Align with `arborist-metrics`. Binary crate — users install via `cargo install` with recent toolchains. |
 
 ---
 
-*This document captures the initial idea and scope. Implementation planning will
-follow using SpecKit once the idea is reviewed and refined.*
+*This document captures the idea, scope, and resolved design decisions. Implementation
+planning will follow using SpecKit.*
