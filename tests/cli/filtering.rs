@@ -2,7 +2,7 @@ use assert_cmd::Command;
 use predicates::prelude::*;
 
 fn cmd() -> Command {
-    Command::cargo_bin("arborist-cli").unwrap()
+    Command::cargo_bin("arborist").unwrap()
 }
 
 /// T036: verify `--threshold 5` shows all functions with `!` on exceeding ones

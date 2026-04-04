@@ -1,7 +1,7 @@
 use assert_cmd::Command;
 
 fn cmd() -> Command {
-    Command::cargo_bin("arborist-cli").unwrap()
+    Command::cargo_bin("arborist").unwrap()
 }
 
 /// T037: verify `--threshold 5` exits with code 1 when functions exceed threshold

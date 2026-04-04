@@ -2,7 +2,7 @@ use assert_cmd::Command;
 use predicates::prelude::*;
 
 fn cmd() -> Command {
-    Command::cargo_bin("arborist-cli").unwrap()
+    Command::cargo_bin("arborist").unwrap()
 }
 
 /// T020: verify `--format json` produces valid JSON with FileReport schema fields

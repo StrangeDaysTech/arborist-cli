@@ -31,7 +31,7 @@ fn check_latest_version() -> ExitCode {
     match self_update::backends::github::Update::configure()
         .repo_owner(REPO_OWNER)
         .repo_name(REPO_NAME)
-        .bin_name("arborist-cli")
+        .bin_name("arborist")
         .current_version(CURRENT_VERSION)
         .build()
     {
@@ -65,7 +65,7 @@ fn perform_update() -> ExitCode {
     let result = self_update::backends::github::Update::configure()
         .repo_owner(REPO_OWNER)
         .repo_name(REPO_NAME)
-        .bin_name("arborist-cli")
+        .bin_name("arborist")
         .current_version(CURRENT_VERSION)
         .show_download_progress(true)
         .show_output(false)
