@@ -1,3 +1,4 @@
+pub mod about;
 pub mod analysis;
 pub mod cli;
 pub mod error;
