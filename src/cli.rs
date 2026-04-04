@@ -33,6 +33,8 @@ pub struct Cli {
 
 #[derive(Debug, Subcommand)]
 pub enum Command {
+    /// Display project information
+    About,
     /// Check for updates and install the latest version
     Update {
         /// Only check for available updates without installing

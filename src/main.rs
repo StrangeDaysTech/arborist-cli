@@ -8,6 +8,10 @@ fn main() -> ExitCode {
     let cli = Cli::parse();
 
     match cli.command {
+        Some(Command::About) => {
+            arborist_cli::about::print();
+            ExitCode::SUCCESS
+        }
         Some(Command::Update { check }) => arborist_cli::update::run(check),
         None => match arborist_cli::run(&cli.analyze) {
             Ok(report) => report.exit_code(),
