@@ -29,8 +29,14 @@ fn directory_gitignore_excludes() {
 
     assert!(output.status.success());
     let stdout = String::from_utf8(output.stdout).unwrap();
-    assert!(!stdout.contains("generated"), "gitignored file should be excluded");
-    assert!(stdout.contains("compute"), "non-ignored files should be included");
+    assert!(
+        !stdout.contains("generated"),
+        "gitignored file should be excluded"
+    );
+    assert!(
+        stdout.contains("compute"),
+        "non-ignored files should be included"
+    );
 }
 
 /// T029: verify `--languages rust` analyzes only .rs files, skips .py
@@ -44,7 +50,10 @@ fn directory_language_filter() {
     assert!(output.status.success());
     let stdout = String::from_utf8(output.stdout).unwrap();
     assert!(stdout.contains("Rust"), "should include Rust files");
-    assert!(!stdout.contains("Python"), "should not include Python files");
+    assert!(
+        !stdout.contains("Python"),
+        "should not include Python files"
+    );
 }
 
 /// T030: verify directory with no recognized files prints info and exits 0
@@ -56,7 +65,11 @@ fn directory_no_recognized_files() {
     // Let's just test that empty results are handled gracefully.
     // We'll use a path filter that excludes everything.
     cmd()
-        .args(["tests/fixtures/nested_project/", "--languages", "javascript"])
+        .args([
+            "tests/fixtures/nested_project/",
+            "--languages",
+            "javascript",
+        ])
         .assert()
         .success();
 }
