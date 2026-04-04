@@ -1,7 +1,9 @@
 ---
+id: AILOG-2026-04-04-001
 title: "Add `about` subcommand"
 type: AILOG
-date: 2026-04-04
+status: accepted
+created: 2026-04-04
 agent: claude-code-v1
 confidence: high
 risk_level: low
