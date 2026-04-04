@@ -2,7 +2,7 @@ use assert_cmd::Command;
 use predicates::prelude::*;
 
 fn cmd() -> Command {
-    Command::cargo_bin("arborist-cli").unwrap()
+    Command::cargo_bin("arborist").unwrap()
 }
 
 /// T027: verify directory analysis finds all .rs files recursively

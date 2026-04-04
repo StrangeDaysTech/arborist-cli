@@ -2,7 +2,7 @@ use assert_cmd::Command;
 use predicates::prelude::*;
 
 fn cmd() -> Command {
-    Command::cargo_bin("arborist-cli").unwrap()
+    Command::cargo_bin("arborist").unwrap()
 }
 
 /// T011: verify `arborist tests/fixtures/simple.rs` produces table output
