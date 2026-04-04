@@ -6,19 +6,62 @@ Code complexity metrics for your codebase, powered by [arborist-metrics](https:/
 
 ## Installation
 
-### From source
+### Pre-built binaries (recommended)
+
+Download the latest release for your platform — no Rust toolchain required.
+
+**Linux / macOS:**
+
+```bash
+curl --proto '=https' --tlsv1.2 -LsSf https://github.com/StrangeDaysTech/arborist-cli/releases/latest/download/arborist-cli-installer.sh | sh
+```
+
+**Windows (PowerShell):**
+
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://github.com/StrangeDaysTech/arborist-cli/releases/latest/download/arborist-cli-installer.ps1 | iex"
+```
+
+### cargo binstall (pre-compiled, no build)
+
+If you have [cargo-binstall](https://github.com/cargo-bins/cargo-binstall) installed:
+
+```bash
+cargo binstall arborist-cli
+```
+
+### cargo install (from source)
+
+Requires Rust 1.85+ (Edition 2024):
 
 ```bash
 cargo install arborist-cli
 ```
 
-### Build locally
+### From source
 
 ```bash
 git clone https://github.com/StrangeDaysTech/arborist-cli.git
 cd arborist-cli
 cargo build --release
 # Binary at ./target/release/arborist-cli
+```
+
+## Updating
+
+The update method depends on how you installed:
+
+| Installed via | Update command |
+|---------------|----------------|
+| Shell/PowerShell installer | `arborist update` |
+| Direct binary download | `arborist update` |
+| cargo binstall | `cargo binstall arborist-cli` |
+| cargo install | `cargo install arborist-cli` |
+
+Check for updates without installing:
+
+```bash
+arborist update --check
 ```
 
 ## Quick start
@@ -40,8 +83,15 @@ arborist src/ --threshold 15
 ## Usage
 
 ```
-arborist [OPTIONS] [PATHS]...
+arborist [OPTIONS] [PATHS]... [COMMAND]
 ```
+
+### Commands
+
+| Command | Description |
+|---------|-------------|
+| `update` | Check for updates and install the latest version |
+| `update --check` | Check for available updates without installing |
 
 ### Arguments
 
@@ -187,19 +237,20 @@ arborist src/ --threshold 10 --exceeds-only --format csv
 
 ```
 src/
-  main.rs           Entry point — parses args, calls lib::run(), maps exit codes
+  main.rs           Entry point — parses args, dispatches to analyze or update
   lib.rs            Orchestration — stdin detection, path analysis, output dispatch
-  cli.rs            CLI argument definitions (clap derive)
+  cli.rs            CLI argument definitions (clap derive) with optional subcommands
   analysis.rs       arborist-metrics wrapper, threshold filtering, sorting
   traversal.rs      Directory walking (ignore crate), language detection by extension
   error.rs          Error types (thiserror), ExitReport with exit code logic
+  update.rs         Self-update from GitHub Releases (self_update crate)
   output/
     mod.rs          Format dispatcher (grouped vs. flat mode)
     table.rs        Human-readable table output (comfy-table)
     json.rs         JSON serialization (serde_json)
     csv_output.rs   CSV output (csv crate)
 tests/
-  cli/              22 integration tests organized by feature area
+  cli/              Integration tests organized by feature area
   fixtures/         Test input files (Rust, Python, multi-file projects)
 ```
 
@@ -228,6 +279,14 @@ cargo clippy -- -D warnings
 ```
 
 The project enforces `clippy::all = "deny"` in `Cargo.toml`.
+
+### Releasing
+
+See [RELEASING.md](RELEASING.md) for the full release procedure. In short:
+
+1. Bump version in `Cargo.toml`
+2. `git tag v0.2.0 && git push origin main --tags`
+3. CI builds binaries for all platforms and creates the GitHub Release
 
 ### Reporting issues
 
