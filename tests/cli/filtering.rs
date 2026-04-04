@@ -31,8 +31,14 @@ fn threshold_exceeds_only() {
         .unwrap();
 
     let stdout = String::from_utf8(output.stdout).unwrap();
-    assert!(stdout.contains("complex_function"), "exceeding function should appear");
-    assert!(!stdout.contains("simple_function"), "non-exceeding function should be filtered");
+    assert!(
+        stdout.contains("complex_function"),
+        "exceeding function should appear"
+    );
+    assert!(
+        !stdout.contains("simple_function"),
+        "non-exceeding function should be filtered"
+    );
     assert!(
         !stdout.contains("moderate_function"),
         "non-exceeding function should be filtered"
@@ -68,11 +74,7 @@ fn no_methods_flag() {
 #[test]
 fn sort_cognitive_descending() {
     let output = cmd()
-        .args([
-            "tests/fixtures/nested_project/src/",
-            "--sort",
-            "cognitive",
-        ])
+        .args(["tests/fixtures/nested_project/src/", "--sort", "cognitive"])
         .output()
         .unwrap();
 
@@ -101,7 +103,11 @@ fn sort_name_ascending() {
     assert!(output.status.success());
     let stdout = String::from_utf8(output.stdout).unwrap();
     let compute_pos = stdout.find("compute").unwrap();
-    let main_pos = stdout.find(" main").unwrap_or_else(|| stdout.find("\nmain").unwrap_or_else(|| stdout.find("main").unwrap()));
+    let main_pos = stdout.find(" main").unwrap_or_else(|| {
+        stdout
+            .find("\nmain")
+            .unwrap_or_else(|| stdout.find("main").unwrap())
+    });
     let transform_pos = stdout.find("transform").unwrap();
     assert!(
         compute_pos < main_pos && main_pos < transform_pos,

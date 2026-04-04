@@ -73,7 +73,10 @@ fn csv_directory_multiple_rows() {
     let stdout = String::from_utf8(output.stdout).unwrap();
     let lines: Vec<&str> = stdout.lines().collect();
     // header + at least 3 functions (compute, transform, main)
-    assert!(lines.len() >= 4, "expected header + 3+ data rows, got {lines:?}");
+    assert!(
+        lines.len() >= 4,
+        "expected header + 3+ data rows, got {lines:?}"
+    );
 }
 
 /// T058: verify CSV with no-function file produces header only
