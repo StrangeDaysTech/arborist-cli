@@ -3,11 +3,11 @@ use std::path::{Path, PathBuf};
 
 use arborist::{AnalysisConfig, FileReport, Language};
 
-use crate::cli::CliArgs;
+use crate::cli::AnalyzeArgs;
 use crate::error::ArboristError;
 use crate::traversal;
 
-pub fn build_config(args: &CliArgs) -> AnalysisConfig {
+pub fn build_config(args: &AnalyzeArgs) -> AnalysisConfig {
     AnalysisConfig {
         cognitive_threshold: args.threshold,
         include_methods: !args.no_methods,
@@ -36,7 +36,7 @@ pub fn analyze_stdin(language: &str, config: &AnalysisConfig) -> Result<FileRepo
 pub fn analyze_paths(
     paths: &[PathBuf],
     config: &AnalysisConfig,
-    args: &CliArgs,
+    args: &AnalyzeArgs,
 ) -> Result<(Vec<FileReport>, Vec<String>), ArboristError> {
     let files = traversal::collect_files(paths, args.languages.as_deref(), args.gitignore)?;
 
@@ -53,7 +53,7 @@ pub fn analyze_paths(
     Ok((reports, errors))
 }
 
-pub fn apply_filters(reports: &[FileReport], args: &CliArgs) -> (Vec<FileReport>, bool) {
+pub fn apply_filters(reports: &[FileReport], args: &AnalyzeArgs) -> (Vec<FileReport>, bool) {
     let mut threshold_exceeded = false;
     let mut filtered: Vec<FileReport> = Vec::new();
 

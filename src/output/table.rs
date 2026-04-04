@@ -4,10 +4,10 @@ use arborist::FileReport;
 use comfy_table::{ContentArrangement, Table};
 
 use crate::analysis::FlatFunction;
-use crate::cli::CliArgs;
+use crate::cli::AnalyzeArgs;
 use crate::error::ArboristError;
 
-pub fn write_reports(reports: &[FileReport], args: &CliArgs) -> Result<(), ArboristError> {
+pub fn write_reports(reports: &[FileReport], args: &AnalyzeArgs) -> Result<(), ArboristError> {
     let stdout = io::stdout();
     let mut out = stdout.lock();
     let is_tty = stdout.is_terminal();
@@ -71,7 +71,7 @@ pub fn write_reports(reports: &[FileReport], args: &CliArgs) -> Result<(), Arbor
     Ok(())
 }
 
-pub fn write_flat(flat: &[FlatFunction], args: &CliArgs) -> Result<(), ArboristError> {
+pub fn write_flat(flat: &[FlatFunction], args: &AnalyzeArgs) -> Result<(), ArboristError> {
     let stdout = io::stdout();
     let mut out = stdout.lock();
     let is_tty = stdout.is_terminal();

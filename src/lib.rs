@@ -3,11 +3,12 @@ pub mod cli;
 pub mod error;
 pub mod output;
 pub mod traversal;
+pub mod update;
 
-use cli::CliArgs;
+use cli::AnalyzeArgs;
 use error::{ArboristError, ExitReport};
 
-pub fn run(args: &CliArgs) -> Result<ExitReport, ArboristError> {
+pub fn run(args: &AnalyzeArgs) -> Result<ExitReport, ArboristError> {
     let is_stdin = args.paths.is_empty() && atty::is(atty::Stream::Stdin).not_tty();
 
     if is_stdin {

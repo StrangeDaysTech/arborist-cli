@@ -5,12 +5,12 @@ pub mod table;
 use arborist::FileReport;
 
 use crate::analysis;
-use crate::cli::{CliArgs, OutputFormat};
+use crate::cli::{AnalyzeArgs, OutputFormat};
 use crate::error::ArboristError;
 
 pub fn write_output(
     reports: &[FileReport],
-    args: &CliArgs,
+    args: &AnalyzeArgs,
     _threshold_exceeded: bool,
 ) -> Result<(), ArboristError> {
     let use_flat_mode = args.sort.is_some() || args.top.is_some();
