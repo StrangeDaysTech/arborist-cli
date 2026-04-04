@@ -27,3 +27,8 @@ predicates = "3"
 
 [lints.clippy]
 all = { level = "deny" }
+
+# The profile that 'dist' will build with
+[profile.dist]
+inherits = "release"
+lto = "thin"
