@@ -1,6 +1,6 @@
 use std::path::PathBuf;
 
-use clap::{Parser, ValueEnum};
+use clap::{Parser, Subcommand, ValueEnum};
 
 #[derive(Debug, Clone, ValueEnum)]
 pub enum OutputFormat {
@@ -23,7 +23,26 @@ pub enum SortMetric {
     version,
     about = "Code complexity metrics powered by arborist-metrics"
 )]
-pub struct CliArgs {
+pub struct Cli {
+    #[command(subcommand)]
+    pub command: Option<Command>,
+
+    #[command(flatten)]
+    pub analyze: AnalyzeArgs,
+}
+
+#[derive(Debug, Subcommand)]
+pub enum Command {
+    /// Check for updates and install the latest version
+    Update {
+        /// Only check for available updates without installing
+        #[arg(long)]
+        check: bool,
+    },
+}
+
+#[derive(Debug, clap::Args)]
+pub struct AnalyzeArgs {
     /// Files or directories to analyze
     #[arg()]
     pub paths: Vec<PathBuf>,

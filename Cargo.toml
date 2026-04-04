@@ -20,6 +20,7 @@ ignore = "0.4"
 thiserror = "2"
 comfy-table = "7"
 csv = "1"
+self_update = { version = "0.43", features = ["archive-tar", "archive-zip", "compression-flate2"] }
 
 [dev-dependencies]
 assert_cmd = "2"
