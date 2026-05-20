@@ -1,6 +1,6 @@
 [package]
 name = "arborist-cli"
-version = "0.2.0"
+version = "0.2.1"
 edition = "2024"
 description = "CLI for arborist-metrics: cognitive/cyclomatic complexity and SLOC metrics"
 license = "MIT OR Apache-2.0"
@@ -8,7 +8,22 @@ repository = "https://github.com/StrangeDaysTech/arborist-cli"
 readme = "README.md"
 keywords = ["complexity", "metrics", "cognitive", "cyclomatic", "cli"]
 categories = ["command-line-utilities", "development-tools"]
-exclude = [".straymark/", ".github/", ".claude/", ".specify/", "specs/", "tests/fixtures/"]
+exclude = [
+    ".agent/",
+    ".claude/",
+    ".cursor/",
+    ".cursorrules",
+    ".gemini/",
+    ".github/",
+    ".specify/",
+    ".straymark/",
+    "specs/",
+    "tests/fixtures/",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "GEMINI.md",
+    "STRAYMARK.md",
+]
 
 [[bin]]
 name = "arborist"

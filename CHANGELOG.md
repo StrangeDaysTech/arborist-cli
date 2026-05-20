@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-05-20
+
+### Changed
+
+- Bump `arborist-metrics` dependency from 0.1.2 to 0.1.3.
+- README: add "Built with AI · Powered by StrayMark" and "Copyright" sections
+  mirroring the format used in the upstream `arborist-metrics` repository.
+
+### Added
+
+- SPDX-License-Identifier and copyright header on every Rust source under
+  `src/` and `tests/cli/`, aligning with the Rust ecosystem convention and
+  the same change adopted in `arborist-metrics` v0.1.3.
+
 ## [0.2.0] - 2026-04-04
 
 ### Added
@@ -41,7 +55,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CI workflow with clippy lints and test suite.
 - Published to crates.io as `arborist-cli`.
 
-[Unreleased]: https://github.com/StrangeDaysTech/arborist-cli/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/StrangeDaysTech/arborist-cli/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/StrangeDaysTech/arborist-cli/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/StrangeDaysTech/arborist-cli/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/StrangeDaysTech/arborist-cli/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/StrangeDaysTech/arborist-cli/releases/tag/v0.1.0
