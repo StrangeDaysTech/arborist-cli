@@ -301,7 +301,7 @@ We welcome patches! Please read [CONTRIBUTING.md](CONTRIBUTING.md) before submit
 `arborist-cli` is an experiment in **disciplined AI-assisted development**.
 The implementation — the `clap`-derived CLI surface, the three output
 formats (table / JSON / CSV), the directory traversal layer, self-update
-from GitHub Releases, and the 29-test integration suite — was authored
+from GitHub Releases, and the 29-test integration suite — was built
 largely by AI agents under human direction.
 
 To make that velocity sustainable, we use **[StrayMark](https://straymark.dev)**:
