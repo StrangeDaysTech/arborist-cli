@@ -101,9 +101,9 @@ dependencies = [
 
 [[package]]
 name = "arborist-metrics"
-version = "0.1.2"
+version = "0.1.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "331cbe5ffbe109ef83f41b6ebb8f1ccda184a4b7a36552e3f6c7bd8459565141"
+checksum = "dcd6cbeab072c9f91f2b170fcd1061ebe7e76db15778c7fbd0b1777cefb165b5"
 dependencies = [
  "serde",
  "tree-sitter",
