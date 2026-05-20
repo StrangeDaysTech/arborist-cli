@@ -296,6 +296,23 @@ File bugs and feature requests at [GitHub Issues](https://github.com/StrangeDays
 
 We welcome patches! Please read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting a PR. All contributors must sign the **Contributor License Agreement (CLA)** — the CLA bot will guide you on your first pull request.
 
+## Built with AI · Powered by StrayMark
+
+`arborist-cli` is an experiment in **disciplined AI-assisted development**.
+The implementation — the `clap`-derived CLI surface, the three output
+formats (table / JSON / CSV), the directory traversal layer, self-update
+from GitHub Releases, and the 29-test integration suite — was authored
+largely by AI agents under human direction.
+
+To make that velocity sustainable, we use **[StrayMark](https://straymark.dev)**:
+a CLI for *cognitive discipline in AI-assisted engineering*. It turned every
+architectural choice into an AIDEC record and every implementation block into
+an AILOG — all under `.straymark/`, append-only and audit-ready. The
+governance artifacts emerged **alongside** the code, not as homework after.
+
+> StrayMark is built by Strange Days Tech — the same team behind `arborist-cli`.
+> It is the tool we made to solve our own problem.
+
 ## License
 
 Licensed under either of
@@ -306,3 +323,13 @@ Licensed under either of
 at your option.
 
 Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in the work by you, as defined in the Apache-2.0 license, shall be dual licensed as above, without any additional terms or conditions.
+
+---
+
+## Copyright
+
+**`arborist-cli`** is © 2026 **[Strange Days Tech S.A.S. de C.V.](https://strangedays.tech/)** — original author and intellectual-property holder of the source code.
+
+The CLI is released under the dual MIT / Apache-2.0 license above; this notice records authorship and does **not** modify those license terms. Each source file carries an SPDX header reflecting the same.
+
+> Built by **[Strange Days Tech](https://strangedays.tech/)** — México.
