@@ -1,13 +1,13 @@
-# DevTrail - Claude Code Configuration
+# StrayMark - Claude Code Configuration
 
-<!-- devtrail:begin -->
-> **Read and follow the rules in [DEVTRAIL.md](DEVTRAIL.md).**
-> That file contains all DevTrail documentation governance rules for this project.
-<!-- devtrail:end -->
+<!-- straymark:begin -->
+> **Read and follow the rules in [STRAYMARK.md](STRAYMARK.md).**
+> That file contains all StrayMark documentation governance rules for this project.
+<!-- straymark:end -->
 
 ---
 
-## Autonomous Rules (minimum viable — works without DEVTRAIL.md)
+## Autonomous Rules (minimum viable — works without STRAYMARK.md)
 
 ### Identity
 - Always identify yourself as `claude-code-v{version}` in the `agent:` field
@@ -25,13 +25,13 @@
 - **NEVER commit directly to `main`** — all changes go through branches + PRs
 - Branch prefixes: `feature/`, `feat/`, `fix/`, `hotfix/`, `docs/`, `refactor/`, `test/`
 - Use conventional commits: `feat:`, `fix:`, `docs:`, `refactor:`, `chore:`, `test:`, `perf:`
-- Full strategy: `.devtrail/00-governance/GIT-BRANCHING-STRATEGY.md`
+- Full strategy: `.straymark/00-governance/GIT-BRANCHING-STRATEGY.md`
 
 ### Pre-commit Checklist
 
 Before committing, check:
 - [ ] Changed auth/PII/security code? → Create AILOG (`risk_level: high`) + ETH draft
-- [ ] Complex code change? → Run `devtrail analyze <changed-files> --output json`; if `above_threshold > 0` create AILOG (fallback if CLI unavailable: >20 lines)
+- [ ] Complex code change? → Run `straymark analyze <changed-files> --output json`; if `above_threshold > 0` create AILOG (fallback if CLI unavailable: >20 lines)
 - [ ] Chose between 2+ alternatives? → Create AIDEC
 - [ ] Changed public API or DB schema? → Create AILOG + consider ADR
 - [ ] Changed ML model/prompts? → Create AILOG + human review
@@ -57,7 +57,7 @@ Do not capture PII, tokens, or secrets in OTel attributes or logs. Record instru
 
 ---
 
-*DevTrail | [Strange Days Tech](https://strangedays.tech) — Because every change tells a story.*
+*StrayMark | [Strange Days Tech](https://strangedays.tech) — Because every change tells a story.*
 
 ## Active Technologies
 - Rust, Edition 2024 + `arborist-metrics` (analysis), `clap` (argument parsing), `serde`/`serde_json` (JSON output), `ignore` (directory traversal + gitignore), `thiserror` (error types) (001-core-cli-mvp)

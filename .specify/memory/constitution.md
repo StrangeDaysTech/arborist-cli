@@ -100,7 +100,7 @@ arborist-cli is deliberately scoped. These boundaries are constitutional:
 - **Not a linter** — reports metrics, does not enforce rules
 - **Not a CI gate** — use the library directly or check exit codes; the CLI
   does not manage pipelines
-- **Not a replacement for DevTrail** — DevTrail uses complexity as *input* to
+- **Not a replacement for StrayMark** — StrayMark uses complexity as *input* to
   documentation decisions; this CLI reports the raw metrics
 - **Thin wrapper only** — all analysis logic lives in `arborist-metrics`;
   the CLI adds argument parsing, directory traversal, and output formatting

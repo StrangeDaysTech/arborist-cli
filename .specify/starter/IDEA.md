@@ -12,7 +12,7 @@ of the `arborist-metrics` API.
 
 ## Why?
 
-When we integrated `arborist-metrics` into DevTrail, we realized that the library's
+When we integrated `arborist-metrics` into StrayMark (formerly DevTrail), we realized that the library's
 value isn't limited to Rust projects embedding it as a dependency. There are two
 underserved audiences:
 
@@ -24,7 +24,7 @@ underserved audiences:
    triage, or exploratory analysis — without committing to a full CI pipeline
    integration.
 
-The DevTrail CLI (`devtrail`) already has complexity awareness, but its scope is
+The StrayMark CLI (`straymark`) already has complexity awareness, but its scope is
 documentation governance — it's overkill when you just want to ask "how complex is
 this file?" or "which functions in this directory exceed threshold X?".
 
@@ -95,7 +95,7 @@ For CI/scripting integration:
 
 - Not a linter (doesn't enforce rules, just reports metrics)
 - Not a CI gate (use the library directly for that, or check exit codes)
-- Not a replacement for DevTrail (DevTrail uses complexity as *input* to documentation
+- Not a replacement for StrayMark (StrayMark uses complexity as *input* to documentation
   decisions; this CLI just reports the raw metrics)
 
 ## Relationship to arborist-metrics
