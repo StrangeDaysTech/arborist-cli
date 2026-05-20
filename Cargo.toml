@@ -8,7 +8,7 @@ repository = "https://github.com/StrangeDaysTech/arborist-cli"
 readme = "README.md"
 keywords = ["complexity", "metrics", "cognitive", "cyclomatic", "cli"]
 categories = ["command-line-utilities", "development-tools"]
-exclude = [".devtrail/", ".github/", ".claude/", ".specify/", "specs/", "tests/fixtures/"]
+exclude = [".straymark/", ".github/", ".claude/", ".specify/", "specs/", "tests/fixtures/"]
 
 [[bin]]
 name = "arborist"
