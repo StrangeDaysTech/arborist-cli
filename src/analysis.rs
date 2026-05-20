@@ -120,9 +120,9 @@ pub fn sort_and_top(
     use crate::cli::SortMetric;
 
     match sort {
-        SortMetric::Cognitive => flat.sort_by(|a, b| b.cognitive.cmp(&a.cognitive)),
-        SortMetric::Cyclomatic => flat.sort_by(|a, b| b.cyclomatic.cmp(&a.cyclomatic)),
-        SortMetric::Sloc => flat.sort_by(|a, b| b.sloc.cmp(&a.sloc)),
+        SortMetric::Cognitive => flat.sort_by_key(|b| std::cmp::Reverse(b.cognitive)),
+        SortMetric::Cyclomatic => flat.sort_by_key(|b| std::cmp::Reverse(b.cyclomatic)),
+        SortMetric::Sloc => flat.sort_by_key(|b| std::cmp::Reverse(b.sloc)),
         SortMetric::Name => flat.sort_by(|a, b| a.name.cmp(&b.name)),
     }
 
